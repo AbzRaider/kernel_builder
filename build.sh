@@ -4,7 +4,7 @@
 
 # clone repo
 git clone --depth=1 https://github.com/pythonpy1997/android-kernel_Dragonfly-RM6785.git -b DF-full-lto
-cd android_kernel_Dragonfly-RM6785
+cd android-kernel_Dragonfly-RM6785
 # Dependencies
 deps() {
         echo "Cloning dependencies"
