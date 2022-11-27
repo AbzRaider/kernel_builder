@@ -64,7 +64,7 @@ compile() {
                 exit 1
         fi
 
-        git clone --depth=1 https://github.com/anupamroy777/AnyKernel33.git AnyKernel
+        git clone --depth=1 https://github.com/pythonpy1997/AnyKernel33.git AnyKernel
         cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 }
 # Zipping
