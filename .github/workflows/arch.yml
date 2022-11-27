@@ -20,5 +20,5 @@ jobs:
       - name: build
         run: |
           sudo pacman -Syu --noconfirm wget git openmp base-devel bc zip
-          wget https://github.com/No1really/kernel_builder/blob/main/build.sh
+          wget https://github.com/pythonpy1997/kernel_builder/blob/main/build.sh
           bash build.sh
