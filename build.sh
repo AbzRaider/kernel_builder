@@ -3,8 +3,8 @@
 #!/usr/bin/env bash
 
 # clone repo
-git clone --depth=1 https://github.com/pythonpy1997/android-kernel_Dragonfly-RM6785.git -b DF-full-lto
-cd android-kernel_Dragonfly-RM6785
+git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b az-dragon-TC-full-lto
+cd android-kernel_Azrael-RM6785
 # Dependencies
 deps() {
         echo "Cloning dependencies"
@@ -28,9 +28,9 @@ PATH="${PWD}/clang/bin:${PATH}"
 export KBUILD_COMPILER_STRING
 ARCH=arm64
 export ARCH
-KBUILD_BUILD_HOST=Pythonpy
+KBUILD_BUILD_HOST=AbzRaider
 export KBUILD_BUILD_HOST
-KBUILD_BUILD_USER="pythonpy1997"
+KBUILD_BUILD_USER="AbzRaider"
 export KBUILD_BUILD_USER
 DEFCONFIG="RM6785_defconfig"
 export DEFCONFIG
@@ -64,15 +64,15 @@ compile() {
                 exit 1
         fi
 
-        git clone --depth=1 https://github.com/pythonpy1997/AnyKernel33.git AnyKernel
+        git clone --depth=1 https://github.com/AbzRaider/AnyKernel33 AnyKernel
         cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 }
 # Zipping
 zipping() {
         cd AnyKernel || exit 1
-        zip -r9 Dragonfly-Test-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
+        zip -r9 Azrael-Test-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
         curl -sL https://git.io/file-transfer | sh
-        ./transfer wet Dragonfly-Test-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip
+        ./transfer wet Azrael-Test-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip
         cd ..
 }
 
