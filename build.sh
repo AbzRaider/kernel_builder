@@ -32,7 +32,7 @@ KBUILD_BUILD_HOST=AbzRaider
 export KBUILD_BUILD_HOST
 KBUILD_BUILD_USER="AbzRaider"
 export KBUILD_BUILD_USER
-DEFCONFIG="RM6785_defconfig"
+DEFCONFIG="RMX2001_defconfig"
 export DEFCONFIG
 PROCS=$(nproc --all)
 export PROCS
