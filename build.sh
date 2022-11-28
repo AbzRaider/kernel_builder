@@ -11,12 +11,26 @@ deps() {
 
         if [ ! -d "clang" ]; then
                 mkdir clang && cd clang
-                wget https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman
-                chmod 744 antman && ./antman -S && cd ../
-                KBUILD_COMPILER_STRING="Neutron Clang 16"
+               git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
+
+
+
+
         fi
         echo "Done"
 }
+
+                      ARCH=arm64 \
+                      CC="clang" \
+                      LD=ld.lld \
+		      AR=llvm-ar \
+		      NM=llvm-nm \
+		      OBJCOPY=llvm-objcopy \
+		      OBJDUMP=llvm-objdump \
+                      CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CROSS_COMPILE="${PWD}/clang/bin/aarch64-linux-gnu-" \
+                      CROSS_COMPILE_ARM32="${PWD}/clang/bin/arm-linux-gnueabi-" \
+                      CONFIG_NO_ERROR_ON_MISMATCH=y
 
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%Y%m%d-%H%M")
@@ -26,7 +40,6 @@ CACHE=1
 export CACHE
 PATH="${PWD}/clang/bin:${PATH}"
 export KBUILD_COMPILER_STRING
-ARCH=arm64
 export ARCH
 KBUILD_BUILD_HOST=AbzRaider
 export KBUILD_BUILD_HOST
@@ -48,16 +61,16 @@ compile() {
         make O=out ARCH="${ARCH}" "${DEFCONFIG}"
 
         make -j"${PROCS}" O=out \
-                ARCH=$ARCH \
-                CC="clang" \
-                LD=ld.lld \
-                CROSS_COMPILE=aarch64-linux-gnu- \
-                CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-                AR=llvm-ar \
-                NM=llvm-nm \
-                OBJCOPY=llvm-objcopy \
-                OBJDUMP=llvm-objdump \
-                STRIP=llvm-strip
+                ARCH=arm64 \
+                      CC="clang" \
+                      LD=ld.lld \
+		      AR=llvm-ar \
+		      NM=llvm-nm \
+		      OBJCOPY=llvm-objcopy \
+		      OBJDUMP=llvm-objdump \
+                      CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CROSS_COMPILE="${PWD}/clang/bin/aarch64-linux-gnu-" \
+                      CROSS_COMPILE_ARM32="${PWD}/clang/bin/arm-linux-gnueabi-" \
         CONFIG_NO_ERROR_ON_MISMATCH=y 2>&1 | tee error.log
 
         if ! [ -a "$IMAGE" ]; then
