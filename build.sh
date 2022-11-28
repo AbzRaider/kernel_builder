@@ -3,8 +3,8 @@
 #!/usr/bin/env bash
 
 # clone repo
-git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b az-dragon-TC-full-lto
-cd android-kernel_Azrael-RM6785
+git clone --depth=1 https://github.com/AbzRaider/android_kernel_realme_RMX2001.git -b Q
+cd android_kernel_realme_RMX2001
 # Dependencies
 deps() {
         echo "Cloning dependencies"
