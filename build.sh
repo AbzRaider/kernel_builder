@@ -11,9 +11,9 @@ deps() {
 
         if [ ! -d "clang" ]; then
                 mkdir clang && cd clang
-               git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
+               git clone --depth=1 https://github.com/kdrag0n/proton-clang.git 
 
-
+                cd ../
 
 
         fi
@@ -58,7 +58,7 @@ compile() {
                 rm -rf out && mkdir -p out
         fi
 
-        make O=out ARCH="${ARCH}" "${DEFCONFIG}"
+        make O=out ARCH=arm64 RMX2001_defconfig
 
         make -j"${PROCS}" O=out \
                 ARCH=arm64 \
