@@ -12,12 +12,11 @@ deps() {
         if [ ! -d "clang" ]; then
                 mkdir clang && cd clang
                git clone --depth=1 https://github.com/kdrag0n/proton-clang.git 
-	       mkdir llvm-project && cd llvm-project
+	       mkdir llvm && chmod 744 llvm && cd llvm
 	       git clone https://github.com/llvm/llvm-project.git
                cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
 	       make clang
-                cd ../
-
+                cd android_kernel_realme_RMX2001
 
         fi
         echo "Done"
