@@ -70,9 +70,9 @@ compile() {
 # Zipping
 zipping() {
         cd AnyKernel || exit 1
-        zip -r9 Azrael-OC-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
+        zip -r9 Azrael-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
         curl -sL https://git.io/file-transfer | sh
-        ./transfer wet Azrael-OC-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip
+        ./transfer wet Azrael-OSS-0.2-KERNEL-"${CODENAME}"-"${DATE}".zip
         cd ..
 }
 
