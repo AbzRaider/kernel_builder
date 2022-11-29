@@ -3,7 +3,7 @@
 #!/usr/bin/env bash
 
 # clone repo
-git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b az-dragon-TC-full-lto
+git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b oc
 cd android-kernel_Azrael-RM6785
 # Dependencies
 deps() {
@@ -70,9 +70,9 @@ compile() {
 # Zipping
 zipping() {
         cd AnyKernel || exit 1
-        zip -r9 Azrael-Test-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
+        zip -r9 Azrael-OC-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
         curl -sL https://git.io/file-transfer | sh
-        ./transfer wet Azrael-Test-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip
+        ./transfer wet Azrael-OC-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip
         cd ..
 }
 
