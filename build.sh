@@ -3,7 +3,7 @@
 #!/usr/bin/env bash
 
 # clone repo
-git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b oc
+git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b az-dragon-TC-full-lto
 cd android-kernel_Azrael-RM6785
 # Dependencies
 deps() {
@@ -28,7 +28,7 @@ PATH="${PWD}/clang/bin:${PATH}"
 export KBUILD_COMPILER_STRING
 ARCH=arm64
 export ARCH
-KBUILD_BUILD_HOST=AbzRaider
+KBUILD_BUILD_HOST=RM6785DEV
 export KBUILD_BUILD_HOST
 KBUILD_BUILD_USER="AbzRaider"
 export KBUILD_BUILD_USER
