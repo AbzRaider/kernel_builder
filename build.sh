@@ -3,8 +3,8 @@
 #!/usr/bin/env bash
 
 # clone repo
-git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b az-dragon-TC-full-lto
-cd android-kernel_Azrael-RM6785
+git clone --depth=1 https://github.com/AbzRaider/Quantum-Kyaru-Sweet.git -b rebase
+cd Quantum-Kyaru-Sweet
 # Dependencies
 deps() {
         echo "Cloning dependencies"
@@ -32,7 +32,7 @@ KBUILD_BUILD_HOST=RM6785DEV
 export KBUILD_BUILD_HOST
 KBUILD_BUILD_USER="AbzRaider"
 export KBUILD_BUILD_USER
-DEFCONFIG="RM6785_defconfig"
+DEFCONFIG="sweet_defconfig"
 export DEFCONFIG
 PROCS=$(nproc --all)
 export PROCS
@@ -70,9 +70,9 @@ compile() {
 # Zipping
 zipping() {
         cd AnyKernel || exit 1
-        zip -r9 Azrael-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
+        zip -r9 AbzRaiderXD-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
         curl -sL https://git.io/file-transfer | sh
-        ./transfer wet Azrael-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip
+        ./transfer wet AbzRaiderXD-OSS-KERNEL-"${CODENAME}"-"${DATE}".zip
         cd ..
 }
 
