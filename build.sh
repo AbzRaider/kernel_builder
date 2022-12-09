@@ -3,8 +3,8 @@
 #!/usr/bin/env bash
 
 # clone repo
-git clone --depth=1 https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git -b az-dragon-TC-full-lto
-cd android-kernel_Azrael-RM6785
+git clone --depth=1 https://github.com/AbzRaider/kernel_xiaomi_pissarro.git -b sc-v2
+cd kernel_xiaomi_pissarro
 # Dependencies
 deps() {
         echo "Cloning dependencies"
@@ -28,11 +28,11 @@ PATH="${PWD}/clang/bin:${PATH}"
 export KBUILD_COMPILER_STRING
 ARCH=arm64
 export ARCH
-KBUILD_BUILD_HOST=RM6785DEV
+KBUILD_BUILD_HOST=MARK_DEV
 export KBUILD_BUILD_HOST
 KBUILD_BUILD_USER="AbzRaider"
 export KBUILD_BUILD_USER
-DEFCONFIG="RM6785_defconfig"
+DEFCONFIG="cannon_user_defconfig"
 export DEFCONFIG
 PROCS=$(nproc --all)
 export PROCS
