@@ -20,8 +20,4 @@ jobs:
       - name: build
         run: |
           sudo pacman -Syu --noconfirm wget git openmp base-devel bc zip
-          git clone https://github.com/AbzRaider/android-kernel_Azrael_RM6785 -b dragon-lto RM6785
-          cd RM6785
-          wget https://raw.githubusercontent.com/AbzRaider/android_kernel_realme_RMX2001/RELEASE-V5/dependencies.sh 
-    bash dependencies.sh
-    bash build.sh
+          git clone https://github.com/AbzRaider/android-kernel_Azrael_RM6785 -b dragon-lto RM6785 && cd RM6785 && wget https://raw.githubusercontent.com/AbzRaider/android_kernel_realme_RMX2001/RELEASE-V5/dependencies.sh && bash dependencies.sh && bash build.sh
